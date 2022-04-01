@@ -13,6 +13,7 @@ import {
   GridItem,
   extendTheme,
 } from "@chakra-ui/react";
+import { motion, scrollRef } from "framer-motion";
 import Head from "next/head";
 
 // import Image from "next/image";
@@ -46,7 +47,11 @@ export default function Home() {
       >
         <Container maxW="4xl">
           <HStack>
-            <Text
+        <motion.div initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ root: scrollRef }}
+        >
+        <Text
               fontSize={{
                 base: "20px",
                 sm: "25px",
@@ -59,6 +64,9 @@ export default function Home() {
                 "When Diet is Wrong, Medicine is of no use. When Diet is right Medicine is of no need. -Ayurveda"
               }
             </Text>
+
+        </motion.div>
+            
             <Box width={{ base: "100%", sm: "50%", md: "25%" }}>
               <Image src="/yoga.svg" alt="Yoga Illustration" />
             </Box>
@@ -69,27 +77,20 @@ export default function Home() {
         </Center>
       </VStack>
       <Center>
-        <Heading pt="1rem">How to use!</Heading>
+        <Heading pt="1rem">How to use</Heading>
       </Center>
 
-      <Container maxW="4xl">
-        <Grid templateColumns="repeat(2,1fr)">
-          <GridItem>
-            <Image
-              boxSize={{
-                base: "200px",
-                sm: "250px",
-                md: "350px",
-                xl: "370px",
-                "2xl": "370px",
-              }}
-              src="/diet.svg"
-              alt="Diet Illustration"
-            />
-          </GridItem>
-          <GridItem>
+      
+      
+        
+        
+          
             <Container pt="2rem" pb="4rem">
-              <Text
+
+            <motion.div initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ root: scrollRef }} >
+        <Text
                 fontSize={{
                   base: "20px",
                   sm: "20px",
@@ -102,7 +103,13 @@ export default function Home() {
                 keep track of such things. You can now search for the Nutrition
                 value of your food with just one search!
               </Text>
-              <Text
+
+
+        </motion.div>
+        <motion.div initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ root: scrollRef }} >
+        <Text
                 fontSize={{
                   base: "20px",
                   sm: "20px",
@@ -114,10 +121,18 @@ export default function Home() {
                 In the search field first write the quantity of your food.
                 Followed by the name of the food you want a search for.
               </Text>
+
+          
+        </motion.div>
+              
+              
             </Container>
-          </GridItem>
-        </Grid>
-      </Container>
+         
+     
+
+    
+
+      
     </div>
   );
 }
